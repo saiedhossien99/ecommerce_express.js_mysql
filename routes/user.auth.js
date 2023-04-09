@@ -9,10 +9,7 @@ router.get("/test",(req,res)=>{
 })
 
 router.post(
-  "/login", [
-      check("email", "valid email is required").isEmail(),
-      
-  ],
+  "/login",
   (req, res) => {
       const error = validationResult(req);
       if (!error.isEmpty()) {
@@ -20,7 +17,8 @@ router.post(
               error: error.array(),
           });
       }
-      let query = `select * from user where email = '${req.body._email}' and password = '${req.body._password}'`;
+      let query = `select * from users where email = '${req.body._email}' 
+      and password = '${req.body._password}'`;
       
       db.query(query,
           (error, result) => {
@@ -60,8 +58,8 @@ router.post(
   "/register",
   (req, res) => {
     
-    let query = `insert into users (id,name, email,password) 
-    values('${req.body._name}', '${req.body._email}', ${req.body._password}')`;
+    let query = `insert into users (name, email,password) 
+    values('${req.body._name}', '${req.body._email}','${req.body._password}')`;
     db.query(query, (error, result) => {
       if (error) {
         console.log(error)
