@@ -11,7 +11,7 @@ con.connect(function(err)
    if(err)
    throw err;
    else
-   console.log('success')
+   console.log('successfully connected')
    
 })
 

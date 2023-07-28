@@ -2,7 +2,7 @@ const express = require("express");
 const db = require("../db/connection");
 const router = express.Router();
 const jwt=require('jsonwebtoken')
-const {check,validationResult}=require('express-validator');
+const {validationResult}=require('express-validator');
 
 router.get("/test",(req,res)=>{
   return res.send('hellow i am okay')

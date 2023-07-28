@@ -14,7 +14,7 @@ app.get('/',(req,res)=>{
 })
 
 app.use("/auth", require("./routes/user.auth"));
-app.use("/items",require("/routes/items.js"));
+app.use("/items",require("./routes/items"));
 app.use((req, res) => {
     res.status(404).json({
         message: "Endpoint Not Found!!!",
