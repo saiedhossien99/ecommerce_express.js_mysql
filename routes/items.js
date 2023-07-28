@@ -1,8 +1,6 @@
 const express = require("express");
 const db = require("../db/connection");
 const router = express.Router();
-const multer =require('multer');
-const path= require('path')
 
 
 var storage = multer.diskStorage({
