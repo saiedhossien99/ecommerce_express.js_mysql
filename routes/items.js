@@ -31,4 +31,16 @@ router.post("/upload", upload.single("image"), (req, res) => {
   );
 });
 
+router.get('/items',(err,res)=>{
+   const sql="select * from products";
+   db.query(sql,(err,result)=>{
+    if(err){
+      console.log(err);
+      res.sendStatus(500);
+    }else{
+      res.send(result);
+    }
+   });
+});
+
 module.exports = router;
