@@ -43,4 +43,42 @@ router.get('/items',(err,res)=>{
    });
 });
 
+router.get('/electronic',(err,res)=>{
+  const sql="select * from products where caragory='electronic' ";
+  db.query(sql,(err,result)=>{
+   if(err){
+     console.log(err);
+     res.sendStatus(500);
+   }else{
+     res.send(result);
+   }
+  });
+});
+
+router.get('/groceries',(err,res)=>{
+  const sql="select * from products where caragory='groceries' ";
+  db.query(sql,(err,result)=>{
+   if(err){
+     console.log(err);
+     res.sendStatus(500);
+   }else{
+     res.send(result);
+   }
+  });
+});
+
+router.get('/fashion',(err,res)=>{
+  const sql="select * from products where caragory='fashoin' ";
+  db.query(sql,(err,result)=>{
+   if(err){
+     console.log(err);
+     res.sendStatus(500);
+   }else{
+     res.send(result);
+   }
+  });
+});
+
+
+
 module.exports = router;
